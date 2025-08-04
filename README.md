@@ -17,12 +17,12 @@ The objective of this task is to perform a detailed network scan using **Nmap** 
 
 ## 🔢 Step-by-Step Procedure
 
-###  1. Find Local IP Range
+1. Find Local IP Range
 
 Used `ip address show` to identify local IP and subnet:
 ```bash
 ip address show
-Output: inet 192.168.230.130/24 ...
+###Output: inet 192.168.230.130/24 ...
 
 
  2. Run TCP SYN Scan
