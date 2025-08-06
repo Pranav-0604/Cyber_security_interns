@@ -1,0 +1,77 @@
+# 📌 Point 3: Email Header Discrepancy Check
+
+## 🔍 Objective
+
+Analyze the full email headers to detect inconsistencies or red flags that may indicate spoofing, relay manipulation, or forged metadata — all signs of phishing.
+
+---
+
+## 🧾 Raw Header Snippet (from `.eml` file)
+
+Received: from SA3PR19MB7370.namprd19.prod.outlook.com (::1)
+by MN0PR19MB6312.namprd19.prod.outlook.com with HTTPS;
+Tue, 19 Sep 2023 18:36:46 +0000
+
+Authentication-Results: dkim=none; spf=pass (sender IP is 40.107.21.206);
+dmarc=pass action=none header.from=outlook.com
+
+Return-Path: security@outlook.com
+From: security@outlook.com
+To: user@example.com
+Date: Tue, 19 Sep 2023 18:36:44 +0000
+Subject: Unusual sign-in activity
+Message-ID: ABCDEF123456@namprd19.prod.outlook.com
+
+yaml
+Copy
+Edit
+
+---
+
+##  Header Fields Analysis
+
+| Header Field         | What It Shows                                                                 | Verdict         |
+|----------------------|-------------------------------------------------------------------------------|-----------------|
+| `Received:` chain    | Internal Microsoft servers (`prod.outlook.com`)                              | ✅ Legitimate   |
+| `Return-Path:`       | Matches `From` field (`security@outlook.com`)                                | ✅ No mismatch  |
+| `Authentication-Results:` | SPF and DMARC both show **pass**, though **DKIM** is **none**               | ⚠️ Mild anomaly |
+| `Message-ID:`        | From `namprd19.prod.outlook.com`, aligns with legitimate Microsoft infra     | ✅ Consistent   |
+| `From:`              | Uses a real Microsoft domain                                                  | ✅ Trusted       |
+| `To:`                | Generic; no personalization                                                   | 🚩 Suspicious   |
+| `Subject:`           | "Unusual sign-in activity" – often used in phishing                          | 🚩 Suspicious   |
+
+---
+
+##  Discrepancies and Concerns
+
+-  **DKIM: none**  
+   Lack of DKIM can be exploited for spoofing, though not a sole indicator of phishing.
+  
+-  **Generic Subject + No Personalization**  
+   Typical trait of phishing attempts. No user-specific data, name, or service mentioned.
+  
+-  **Single IP SPF Pass**  
+   IP `40.107.21.206` is owned by Microsoft, but could still be spoofed unless validated carefully.
+
+---
+
+## 🌐 Header Analyzer Result (if submitted to tools like MxToolbox / Google Admin Toolbox)
+
+>  SPF Pass  
+>  DKIM: None  
+>  DMARC Pass  
+>  Overall result: **Partially authenticated** — further inspection needed.
+
+---
+
+##  Summary
+
+| Feature                  | Status        | Comments                                    |
+|--------------------------|---------------|---------------------------------------------|
+| SPF                     |  Passed      | IP matches known Microsoft IP block         |
+| DKIM                    |  Not present | Weakens authentication                      |
+| DMARC                   |  Passed      | Based on domain policy                      |
+| Header Consistency      |  Mixed       | Mostly valid, but lacks user-specific info  |
+
+
+
