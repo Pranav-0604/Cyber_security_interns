@@ -1,0 +1,44 @@
+## 8. Summary of Phishing Traits Found in the Email
+
+This section provides a consolidated overview of the phishing indicators identified during the analysis of the provided `.eml` file.
+
+---
+
+###  Key Phishing Traits Identified
+
+| Trait Category                  | Description                                                                 |
+|-------------------------------|-----------------------------------------------------------------------------|
+| **Sender Email Address**      | Uses a **lookalike domain** `account-security-noreply@outlook.com` that mimics Microsoft but is not verified as official. |
+| **Display Name**              | Attempts to appear as a trusted entity (Microsoft Account Team), though no such official sender was found. |
+| **Email Headers**             | Contains suspicious routing paths and lack of strong authentication (SPF/DKIM/DMARC results not visible). |
+| **Suspicious Links**          | Contains a button link that does not go to a **verified Microsoft domain**. The actual URL is obscured. |
+| **Urgency or Threats**        | Language like “We detected something unusual” and “Click the button below to secure your account” creates urgency. |
+| **Mismatched URLs**           | Hover-over link likely does not match the displayed text (based on structure), increasing suspicion. |
+| **Spelling/Grammar**          | Minimal or no grammatical errors found, but this does not validate authenticity. |
+
+---
+
+###  Final Assessment
+
+Although the email uses a relatively clean and professional layout, it displays multiple signs of phishing:
+
+- Impersonation of Microsoft
+- Suspicious sender address
+- Mismatched or obscured links
+- Unverified domain usage
+- Pressure tactics using security warnings
+
+---
+
+###  Conclusion
+
+This email is highly suspicious and likely a phishing attempt. It is crafted to deceive users by imitating a trusted brand and creating urgency around a fabricated security event.
+
+---
+
+### Recommendation
+
+- **Do not click** on any links or attachments.
+- **Do not respond** to the email.
+- Report it as phishing using your email client's "Report" feature.
+- Consult your IT/security team if this was received in a workplace account.
