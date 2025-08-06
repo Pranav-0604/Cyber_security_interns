@@ -1,0 +1,50 @@
+## 5. Urgent or Threatening Language in Email Body
+
+### Purpose of This Check
+Phishing emails often use urgent or fear-inducing language to pressure users into taking immediate action. This tactic is used to bypass logical thinking and exploit panic.
+
+---
+
+### Excerpts from Email Body (based on .eml content)
+
+**Subject Line:**  
+"Unusual sign-in activity detected on your Microsoft account."
+
+**Body Snippet:**  
+"We detected an unusual sign-in attempt from an unrecognized device. If this wasn't you, please secure your account immediately to prevent unauthorized access."
+
+**Call to Action Button:**  
+"Secure My Account ➜"
+
+---
+
+### Analysis of Language
+
+| Language Pattern                      | Example Used in Email                                         | Risk Type            |
+|---------------------------------------|---------------------------------------------------------------|-----------------------|
+| Urgency/Immediate Action              | "Secure your account immediately"                             | Panic Trigger         |
+| Security Threat/Alarm                 | "Unusual sign-in attempt detected"                            | Induces Fear          |
+| Fear of Account Compromise            | "Prevent unauthorized access"                                 | Pressure Tactic       |
+| Implied Time Sensitivity              | Suggests immediate action without clear time frame            | Manipulative Urgency  |
+
+---
+
+### Why This is Suspicious
+
+- These phrases are designed to manipulate the recipient emotionally.
+- The email provides no technical details (e.g., IP address, location) to verify the sign-in attempt.
+- It lacks verifiable context or confirmation steps from an official support system.
+
+---
+
+### Verdict
+
+The email relies heavily on urgent and fear-based language, which is a strong indicator of a phishing attempt. The goal is to prompt a quick, uninformed reaction from the recipient.
+
+---
+
+### Recommendation
+
+- Do not act immediately on emotionally charged messages.
+- Manually visit the official Microsoft website by typing the URL in your browser.
+- Report the email to your internal IT or cybersecurity team for investigation.
