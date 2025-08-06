@@ -1,0 +1,36 @@
+## 7. Spelling and Grammar Error Analysis
+
+### Purpose of This Check
+Phishing emails often originate from non-professional or automated sources that **fail to follow proper grammar or spelling conventions**. Legitimate companies like Microsoft maintain a high standard of language quality. Errors in spelling, punctuation, or sentence structure are strong red flags indicating fraud or spoofing.
+
+---
+
+### Observed Issues in the Email
+
+After reviewing the email body from the `.eml` file, the following issues were identified:
+
+| Sentence/Line                                           | Issue Type               | Explanation                                           |
+|---------------------------------------------------------|--------------------------|-------------------------------------------------------|
+| "We detected something unusual about a recent sign-in." | None                     | Grammatically correct.                               |
+| "Please let us know whether or not this was you."       | None                     | Correct structure.                                   |
+| "If this wasn’t you, someone else might have access..." | Apostrophe usage         | Acceptable but could confuse some readers.           |
+| "Microsoft will never ask for your password via email." | None                     | Standard warning phrase.                             |
+| "Click the button below to secure your account."        | None                     | No grammatical issue.                                |
+
+No blatant **spelling** errors or obvious **grammatical mistakes** were found in the email text.
+
+---
+
+### Conclusion
+
+While this phishing email was crafted with **minimal to no grammar/spelling errors**, the presence of other red flags (such as a spoofed domain, mismatched URL, and suspicious content) still strongly indicates a **malicious intent**.
+
+---
+
+### Recommendation
+
+Do not rely solely on language quality to determine the legitimacy of an email. Always verify:
+- Sender's address
+- URLs and links
+- Unexpected content
+- Attachments or urgency in tone
