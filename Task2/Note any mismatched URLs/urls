@@ -1,0 +1,47 @@
+## 6. Mismatched URLs Analysis
+
+### Purpose of This Check
+Phishing emails often contain hyperlinks that **appear legitimate** but redirect the user to **malicious or spoofed websites**. A common method to detect such behavior is to **hover over the link** (without clicking) and compare the displayed text with the actual destination URL.
+
+---
+
+### Observed Link in the Email
+
+**Visible Text on Button:**  
+"Secure My Account ➜"
+
+**Actual URL (from .eml source):**  
+`http://account-microsoft-security-notice.com/login`
+
+---
+
+### Analysis of URL Discrepancy
+
+| Checkpoint                        | Observation                                                  | Verdict          |
+|----------------------------------|--------------------------------------------------------------|------------------|
+| Does the domain match Microsoft? | No. Official Microsoft domains include `microsoft.com`, `live.com`, `outlook.com` | Suspicious       |
+| Is it an HTTPS-secured link?     | No. Link begins with `http://` instead of `https://`         | Security Risk    |
+| Is the domain misleading?        | Yes. Contains keywords like "account", "microsoft", and "security" to create false trust | Deceptive Design |
+| Does it redirect to a third-party? | Yes, it does not lead to any official Microsoft property     | Phishing Marker  |
+
+---
+
+### Why This is Suspicious
+
+- The domain name is **crafted to look trustworthy** by including words like "microsoft" and "security", but it is not owned by Microsoft.
+- The use of **HTTP instead of HTTPS** indicates a lack of encryption and data security.
+- There's **no verification of sender** or certificate associated with the link.
+
+---
+
+### Verdict
+
+This is a **classic case of a mismatched and misleading URL**. The visible link text is crafted to build trust, but the actual hyperlink is designed to steal credentials or infect devices.
+
+---
+
+### Recommendation
+
+- Never click on links that appear suspicious or unfamiliar.
+- Instead of clicking, go directly to the official website by manually typing the known URL in your browser.
+- Report the email to your security team for further inspection.
