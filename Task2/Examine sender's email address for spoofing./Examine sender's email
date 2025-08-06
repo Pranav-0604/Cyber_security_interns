@@ -1,0 +1,42 @@
+# 📧 Point 2: Sender Email Address Analysis
+
+## 📬 Extracted Sender Details
+
+| Field             | Value                       |
+|------------------|-----------------------------|
+| From             | security@outlook.com        |
+| Return-Path      | security@outlook.com        |
+| Reply-To         | Not explicitly specified     |
+| Display Name     | Not available in headers     |
+
+---
+
+##  Spoofing Indicators
+
+| Check                                | Observation                                | Verdict         |
+|--------------------------------------|--------------------------------------------|-----------------|
+| Is domain official/trusted?          |  `outlook.com` is a valid Microsoft domain |  Trusted       |
+| Is display name misleading?          |  Not available                             |  Inconclusive  |
+| Does reply-to differ from sender?    |  No difference observed                    |  Legitimate    |
+| Was the email expected?              |  Generic security alert, no context given  |  Suspicious    |
+
+---
+
+## Notes
+
+- While `outlook.com` is a genuine domain, attackers can **still spoof it**.
+- Absence of display name and message body limits verification.
+- Microsoft usually sends alerts from addresses like:
+  - `account-security-noreply@accountprotection.microsoft.com`
+
+---
+
+##  Conclusion
+
+Even though the domain is valid, the message is **suspicious** due to:
+- Lack of context
+- No personalization
+- No message body content
+
+
+---
