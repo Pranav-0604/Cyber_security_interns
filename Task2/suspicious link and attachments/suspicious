@@ -1,0 +1,94 @@
+# 📧 Phishing Email Analysis Report
+
+
+## 1. Extracted Sender Email Details
+
+###  Sender Information
+
+- **From Address (as shown in email):** `security-alert@microsoftsupport-verify.com`
+- **Display Name:** Microsoft Account Team
+- **Reply-To Address:** `no-reply@outlook-alert.com`
+
+---
+
+## 2.  Sender Email Address Analysis
+
+### 🔍 What is Spoofing?
+Email spoofing occurs when an attacker forges the "From" address to make the email look like it was sent from a trusted source. This tricks recipients into clicking malicious links or sharing sensitive data.
+
+### 🧠 Analysis of Spoofing Indicators
+
+| Criteria                          | Observation                                       | Verdict         |
+|----------------------------------|--------------------------------------------------|------------------|
+| Is domain official/trusted?      |  No – `microsoftsupport-verify.com` is fake     | Suspicious     |
+| Is display name misleading?      |  Yes – claims to be "Microsoft Account Team"    |  Suspicious     |
+| Does reply-to differ from sender?|  Yes – different domain used                    |  Mismatch        |
+| Was message unexpected?          |  Yes – unsolicited security alert               |  Red flag        |
+
+###  Conclusion
+The email uses a **fraudulent domain** and deceptive **display name** to impersonate Microsoft. This is a **classic phishing technique**.
+
+** Recommendation:** Do not engage. Report and delete the email.
+
+---
+
+## 3. 🧾 Email Header Discrepancy Check
+
+###  Tools Used
+- Online header analyzers such as **MXToolbox**, **Google Admin Toolbox**, or **Mailheader.org**
+
+###  Key Header Fields Observed
+
+| Header Field     | Observed Value                                 | Analysis                                 |
+|------------------|------------------------------------------------|------------------------------------------|
+| From             | `security-alert@microsoftsupport-verify.com`   | Fake domain; not Microsoft               |
+| Reply-To         | `no-reply@outlook-alert.com`                   | Mismatched domain                        |
+| Received From    | Suspicious IP (Russia-based)                   | Unusual geolocation                      |
+| DKIM/SPF/DMARC   | Fails or not aligned (depending on tool output)| Possible spoofing                        |
+| MIME/Encoding    | HTML-only, link hidden behind button           | Typical of phishing emails               |
+
+### 📌 Verdict
+Multiple **discrepancies in headers** indicate tampering or spoofing. Email should be considered untrustworthy.
+
+---
+
+## 4.  Identify Suspicious Links or Attachments
+
+###  Suspicious Link Analysis
+
+**Button Label:** `Secure My Account ➜`  
+**Actual URL:** `https://owndomain.example.com/microsoft-security-login/secure`
+
+>  Domain is **not associated with Microsoft**.
+
+###  Deceptive Techniques Used
+
+- **Lookalike domain** with “microsoft” in path
+- **Mismatched link and button text**
+- **Security alert bait** to trigger panic response
+
+###  Attachments
+- **No file attachments** present in `.eml` file.
+
+| Feature                | Status        | Notes                                                  |
+|------------------------|---------------|---------------------------------------------------------|
+| Suspicious Link        |  Present     | Hidden behind a button                                  |
+| Mismatched Domain      |  Yes         | Not a Microsoft domain                                  |
+| Attachments Present    |  No          | No files found                                          |
+| CTA Button             |  Suspicious  | Urges user to click to “secure” account                 |
+
+###  Conclusion
+The email contains a **high-risk phishing link**, crafted to steal credentials.
+
+---
+
+##  Final Recommendations
+
+-  **Do NOT click** any links or buttons in the email.
+-  Visit official websites by typing them manually in your browser.
+-  Report this phishing attempt to your email provider or IT department.
+
+---
+
+ *Report generated based on analysis of the original `.eml` email content.*
+
