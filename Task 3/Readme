@@ -1,0 +1,87 @@
+Got it — here’s a polished **README.md** for your GitHub repo documenting the Nessus vulnerability scan project.
+
+---
+
+````markdown
+# 🔍 Nessus Vulnerability Assessment – Localhost (Kali Linux)
+
+## 📌 Project Overview
+This project demonstrates a full vulnerability scanning workflow using **Tenable Nessus Essentials** on a local Kali Linux machine.  
+The goal was to identify security weaknesses, analyze their severity, and document remediation strategies.
+
+---
+
+## 🛠 Tools & Technologies
+- **Kali Linux** (Localhost)
+- **Tenable Nessus Essentials**
+- **Browser Access** via `https://127.0.0.1:8834/`
+
+---
+
+## 📂 Steps Performed
+1. **Installed** Nessus Essentials on Kali Linux.
+2. **Started** the Nessus service:
+   ```bash
+   sudo systemctl start nessusd
+   sudo systemctl enable nessusd
+````
+
+3. **Accessed** Nessus Web UI via browser.
+4. **Created** a scan target (localhost / `127.0.0.1`).
+5. **Ran** a full vulnerability scan.
+6. **Waited** for completion (approx. 30–60 mins).
+7. **Reviewed** the report for vulnerabilities.
+8. **Documented** top findings and recommended fixes.
+
+---
+
+## 📊 Scan Summary
+
+| Severity | Count |
+| -------- | ----- |
+| Critical | X     |
+| High     | X     |
+| Medium   | X     |
+| Low      | X     |
+| Info     | X     |
+
+---
+
+## 🚨 Top Critical & High Vulnerabilities
+
+| Severity | Vulnerability Name                | CVE ID(s)     | Description                                                         | Recommended Fix                        |
+| -------- | --------------------------------- | ------------- | ------------------------------------------------------------------- | -------------------------------------- |
+| Critical | OpenSSL Multiple Vulnerabilities  | CVE-XXXX-XXXX | Multiple flaws in OpenSSL could allow remote code execution or DoS. | Update OpenSSL to the latest version.  |
+| High     | Apache HTTP Server Path Traversal | CVE-XXXX-XXXX | Could allow attackers to read sensitive files.                      | Upgrade to Apache 2.4.57+.             |
+| High     | Samba Remote Code Execution       | CVE-XXXX-XXXX | Could allow unauthenticated RCE.                                    | Update Samba and disable guest access. |
+
+---
+
+## 🖼 Screenshots
+
+*(Replace with your actual images)*
+
+![Nessus Dashboard](screenshots/nessus_dashboard.png)
+![Vulnerability Details](screenshots/vuln_details.png)
+
+---
+
+## 📚 Lessons Learned
+
+* Regular vulnerability scanning is crucial for system security.
+* Patch management significantly reduces attack surface.
+* Some vulnerabilities can be mitigated without upgrading, using configuration hardening.
+
+---
+
+## 📄 License
+
+This project is for **educational purposes only**. Do not scan systems without proper authorization.
+
+```
+
+---
+
+If you want, I can **pull the exact CVEs and counts directly from your Nessus screenshots** so your README looks complete and professional.  
+Do you want me to fill them in from the scan results you sent?
+```
