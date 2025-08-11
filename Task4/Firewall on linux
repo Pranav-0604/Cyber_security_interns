@@ -1,0 +1,79 @@
+Task 4: Setup and Use a Firewall on Linux (Kali)
+Objective: Configure and test basic firewall rules to allow or block traffic using iptables.
+
+1. Check Current Firewall Rules
+Before making changes, it’s important to see the current firewall status.
+
+Command:
+sudo iptables -L
+
+Explanation:
+iptables → Linux command-line firewall tool.
+-L → lists all current rules for INPUT, FORWARD, and OUTPUT chains.
+This shows the default policy (e.g., ACCEPT/DROP) and any applied rules.
+
+2. Add Rule to Block Inbound Traffic on Port 23 (Telnet)
+Telnet is insecure, so it’s often disabled. Here, we block it to test the firewall.
+
+Command:
+sudo iptables -A INPUT -p tcp --dport 23 -j DROP
+
+Explanation:
+-A INPUT → appends a rule to the INPUT chain (incoming traffic).
+-p tcp → specifies TCP protocol.
+--dport 23 → targets port 23 (Telnet).
+-j DROP → silently drops matching packets.
+
+3. Verify the New Rule
+Check if the Telnet rule exists.
+
+Command:
+sudo iptables -L -n
+
+Look for:
+DROP       tcp  --  anywhere             anywhere             tcp dpt:telnet
+
+4. Test the Blocked Port
+We try connecting via Telnet to confirm the rule works.
+Step 1 – Install Telnet Client:
+sudo apt update
+sudo apt install telnet
+
+Step 2 – Test Connection:
+telnet 127.0.0.1 23
+
+Expected Result:
+Unable to connect → confirms the firewall is blocking port 23.
+
+5. Allow SSH (Port 22)
+SSH is essential for remote management, so we allow it.
+
+Command:
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+Explanation:
+Same as before, but -j ACCEPT allows traffic instead of blocking it.
+
+6. Remove the Telnet Block Rule
+Once testing is complete, we remove the Telnet block to restore the original state.
+
+Command:
+sudo iptables -D INPUT -p tcp --dport 23 -j DROP
+
+Explanation:
+-D deletes the exact rule from the chain.
+
+Verify Removal:
+sudo iptables -L -n | grep 23
+If no output → rule is removed.
+
+7. Summary – How Firewall Filters Traffic
+The firewall examines packets and applies rules in order from top to bottom:
+ACCEPT → allows packets to pass.
+DROP → silently discards packets.
+REJECT → discards packets and sends an error back.
+By controlling ports and protocols, we can:
+Block insecure services (e.g., Telnet).
+Allow essential services (e.g., SSH).
+
+Prevent unauthorized access.
