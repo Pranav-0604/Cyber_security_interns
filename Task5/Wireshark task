@@ -1,0 +1,27 @@
+# Task 5 - Network Packet Capture Summary
+
+## Overview
+This file contains a network packet capture in `.pcapng` format, analyzed to extract key traffic information including packet count, communication endpoints, and protocols used.  
+The capture was performed while accessing the Amazon website.
+
+## Summary
+- **Observed Protocols:**
+  - QUIC (Quick UDP Internet Connections) — used by Amazon for HTTP/3
+  - TCP
+  - HTTP
+  - SSL/TLS
+  - DNS
+
+- **Notable QUIC Traffic:**
+  - Source IP: `192.168.1.14` (local host)
+  - Destination IP: `18.161.226.221` (Amazon server)
+  - QUIC packets contain encrypted payloads (`Protected Payload`), indicating secure communication.
+
+- **Other Observations:**
+  - DNS requests likely used for resolving Amazon domains before QUIC/TCP connections.
+  - Encrypted SSL/TLS traffic for secure browsing over TCP.
+  - QUIC traffic likely handled the bulk of HTTP/3 page requests.
+
+## Notes
+- QUIC improves web performance by reducing connection setup time and avoiding TCP head-of-line blocking.
+- In Wireshark, QUIC packets appear over UDP, typically on port 443.
