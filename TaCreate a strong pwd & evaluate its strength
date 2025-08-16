@@ -1,0 +1,65 @@
+Task 6: Create a Strong Password and Evaluate Its Strength
+Objective
+
+To understand what makes a password strong by creating and testing different passwords against online strength checkers, and to evaluate their resistance to common password attacks.
+
+1. Passwords Created (Varying Complexity)
+
+Simple: lemon123
+
+Medium: BlueSky2025
+
+Strong: Storm@2025
+
+Very Strong: xT9$Lp3@Z1vW
+
+2. Testing on Password Strength Checker
+
+(Tool used: passwordmeter.com)
+
+Password	Length	Complexity Used	Score / Feedback
+lemon123	8	lowercase + numbers	Weak – Too short, predictable, dictionary-based
+BlueSky2025	10	uppercase + lowercase + numbers	Fair – Better but still guessable (dictionary word + year)
+Storm@2025	10	mixed case + numbers + symbol	Strong – Good complexity, resistant to dictionary attack
+xT9$Lp3@Z1vW	12	upper + lower + numbers + symbols	Very Strong – Randomized, long, highly resistant to brute force
+3. Best Practices Identified
+
+Length matters → Aim for at least 12–16 characters.
+
+Use variety → Combine uppercase, lowercase, numbers, and special characters.
+
+Avoid patterns → Don’t use birthdays, names, or dictionary words.
+
+Randomness is key → A password like xT9$Lp3@Z1vW is much harder to crack than BlueSky2025.
+
+Passphrases work too → Example: H@ppy!Sunshine_2025 (easy to remember, but complex).
+
+4. Common Password Attacks
+
+Brute Force Attack: Tries every possible combination. Longer, more complex passwords take exponentially more time.
+
+Dictionary Attack: Uses common words, names, and known weak passwords. Easily defeats short/simple passwords like lemon123.
+
+5. Summary: How Complexity Affects Security
+
+Simple passwords are cracked in seconds by brute force or dictionary attacks.
+
+Medium complexity passwords may resist dictionary attacks but still fall quickly to brute force.
+
+Strong passwords with mixed character types significantly increase resistance.
+
+Very strong, random passwords (12+ chars, symbols, unpredictable) may take centuries or longer to crack with current technology.
+
+6. Tips Learned
+
+Always use 12+ characters.
+
+Mix upper, lower, numbers, and symbols.
+
+Avoid common words, names, or patterns.
+
+Consider passphrases for memorability.
+
+Regularly update and manage passwords using a password manager.
+
+Deliverable Completed: This report demonstrates password creation, evaluation results, research on password attacks, and best practices for strong password security.
