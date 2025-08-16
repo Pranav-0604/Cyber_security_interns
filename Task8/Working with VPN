@@ -1,0 +1,82 @@
+VPN Usage and Verification Guide
+Steps Followed
+
+VPN Selection
+
+Chose a reputable free VPN service (ProtonVPN).
+
+Created an account to enable VPN usage.
+
+Installation
+
+Downloaded and installed the VPN client on Windows.
+
+Connection
+
+Connected to a ProtonVPN server (location chosen based on availability).
+
+VPN adapter assigned a tunnel IP (10.2.0.2 internally).
+
+IP Address Verification
+
+Checked IP using ipconfig and online tools.
+
+Verified change from ISP public IP to VPN server IP.
+
+Traffic Encryption Check
+
+Used Wireshark to analyze packets:
+
+Before VPN → clear DNS/HTTP requests visible.
+
+After VPN → only encrypted WireGuard packets between client and ProtonVPN server.
+
+Performance Test
+
+With VPN: IP masked, but browsing slightly slower.
+
+Without VPN: ISP IP exposed, faster browsing but no encryption.
+
+Research on VPN Encryption & Privacy
+
+ProtonVPN uses WireGuard/OpenVPN with AES-256 encryption.
+
+Provides DNS leak protection and no-logs privacy policy.
+
+🔎 Before vs After VPN Comparison
+Feature	Without VPN	With VPN (ProtonVPN)
+Local IP	192.168.0.115 (Wi-Fi)	192.168.0.115 (unchanged)
+Tunnel IP	N/A	10.2.0.2 (assigned by VPN)
+Public IP	103.151.114.11 (ISP assigned)	185.177.125.173 (VPN server IP)
+Traffic	Visible (HTTP/DNS requests clear)	Encrypted (WireGuard packets only)
+Browsing Speed	Normal (faster)	Slightly reduced (due to encryption)
+Privacy	ISP and trackers can see activity	ISP sees only encrypted tunnel
+✅ Benefits of VPN
+
+Masks real public IP and location.
+
+Encrypts all internet traffic, ensuring privacy.
+
+Protects against ISP monitoring and Wi-Fi snooping.
+
+Allows bypassing of geo-restrictions.
+
+⚠️ Limitations of VPN
+
+Can reduce browsing speed.
+
+Free VPNs have limited servers and bandwidth.
+
+Not complete anonymity (cookies, device fingerprinting still trackable).
+
+Some websites block VPN IP ranges.
+
+📌 Conclusion
+
+Using ProtonVPN successfully showed how VPNs:
+
+Change your public IP (103.151.114.11 → 185.177.125.173).
+
+Encrypt traffic (verified in Wireshark with WireGuard packets).
+
+Improve privacy and security with only minor speed trade-offs
